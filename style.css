@@ -1,0 +1,222 @@
+h1 {
+    margin: auto;
+    /*centers the text*/
+    font-size: 72px;
+    text-align: center;
+    /*the next three lines allow me to make the heading text a linear-gradient*/
+    background: -webkit-linear-gradient(purple, lightblue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-radius: 15px 50px;
+    /*rounds the corners of the border*/
+    border: 5px solid #b666d2;
+    /*makes the border visible and sets the color to violet*/
+    padding: 20px;
+    width: 900px;
+    height: 100px;
+    box-shadow: 10px 10px 30px purple;
+    /*adds a shadow to the box with the shadow having a purplish tone*/
+    filter: blur(10px);
+    /*blurs the picture to make it harder to see*/
+    animation: firstAnimation 2s;
+    /*calling forth my animation*/
+    transition: border 1s, box-shadow 1s, -webkit-background-clip 1s, filter 1s;
+    /*calling forth a transition for an action*/
+}
+
+h1:hover {
+    /*the next three lines allow the text to change color while maintaining the gradient*/
+    background: -webkit-linear-gradient(black, white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: 5px solid black;
+    /*changes border to have a black color*/
+    box-shadow: 10px 10px 30px gray;
+    /*changes box shadow to a darkish tone*/
+    filter: blur(0px);
+    /*makes the heading focus in */
+    
+}
+
+html {
+    background: linear-gradient(white, violet) no-repeat center fixed;
+    /*allows the background to always look nice with the gradient and not make it look distorted*/
+}
+
+@keyframes firstAnimation {
+    0% {
+        opacity: 0;
+        /*makes it not visible*/
+        transform-origin: 50% 50%;
+        /*where the transformation centers around*/
+        transform: scale(0, 0) rotate(360deg);
+        /*scale 0 makes the heading not visible while spinning because of the rotate*/
+    }
+    20% {
+        opacity: 1;
+        transform-origin: 0 100%;
+        transform: scale(.5) rotate(0);
+    }
+    40% {
+        opacity: 1;
+        transform-origin: 100% 100%;
+        transform: scale(.5) rotate(0);
+    }
+    60% {
+        opacity: 1;
+        transform-origin: 0;
+        transform: scale(.5) rotate(0);
+    }
+    80% {
+        opacity: 1;
+        transform-origin: 0 0;
+        transform: scale(.5) rotate(0);
+    }
+    100% {
+        opacity: 1;
+        transform-origin: 50% 50%;
+        transform: scale(1) rotate(0);
+    }
+}
+
+p {
+    width: 300px;
+    border-radius: 50px;
+    border: 5px inset #b666d2;
+    padding: 20px;
+    display: inline-block;
+    /*takes up mininal space and all the code follows through to all paragraph tags*/
+}
+
+#paragraphOne {
+    margin-left: 20px;
+    /*pushes off the left side a bit*/
+    display: inline-block;
+    position: relative;
+    /*allows me to change the position depending on where it was originally*/
+    animation: slideInRight 2s;
+    /*calls the animation*/
+    animation-fill-mode: forwards;
+    /*allows the paragraph to stay in the spot after the animation*/
+}
+
+#paragraphTwo {
+    position: relative;
+    float: right;
+    /*makes the paragraph go to the right without taking a lot of room and disrupting order*/
+    animation: slideInLeft 2s;
+    animation-fill-mode: forwards;
+}
+
+#paragraphThree {
+    margin-left: 20px;
+    position: relative;
+    left: 500px;
+    /*moves the paragraph to the center*/
+    animation: appear 2s;
+    animation-fill-mode: forwards;
+}
+
+#paragraphFour {
+    position: relative;
+    top: -307px;
+    /*moves the paragraph up from where it is*/
+    right: 500px;
+    /*pushes off the right wall*/
+    float: right;
+    animation: curveRight 2s;
+    animation-fill-mode: forwards;
+}
+
+#paragraphFive {
+    margin-left: 20px;
+    position: relative;
+    left: 500px;
+    animation: spinLeft 2s;
+    animation-fill-mode: forwards;
+}
+
+#paragraphSix {
+    position: relative;
+    top: -307px;
+    left: -500px;
+    float: right;
+    animation: spinRight 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes spinRight {
+    from {
+        transform: rotate(0deg) scale(.01);
+        transform-origin: 100% 0%;
+        opacity: 0;
+    }
+    to {
+        transform: rotate(-360deg) scale(1);
+        transform-origin: 100% 0%;
+        opacity: 1;
+    }
+}
+
+@keyframes spinLeft {
+    from {
+        transform: rotate(0deg) scale(.01);
+        transform-origin: 0% 0%;
+        opacity: 0;
+    }
+    to {
+        transform: rotate(360deg) scale(1);
+        transform-origin: 0% 0%;
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translate(500px, 0px);
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-500px, 0px);
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform-origin: 50% 50%;
+        transform: scale(2);
+        filter: blur(100px)
+        /*allows the paragraph to go completely invisible and have a 2x bigger size than usual*/
+    }
+    100% {
+        opacity: 1;
+        transform-origin: 50% 50%;
+        transform: scale(1);
+        filter: blur(0px)
+        /*sets the blur to zero so you can clearly see the paragraph and puts it to the original size*/
+    }
+}
+
+@keyframes curveRight {
+    0% {
+        opacity: 0;
+        transform-origin: 100% 50%;
+        transform: scale(.1) translate(600px, 0px)
+    }
+    100% {
+        opacity: 1;
+        transform-origin: 100% 50%;
+        transform: scale(1) translate(0, 0)
+    }
+}
