@@ -160,12 +160,12 @@ p {
 
 @keyframes spinLeft {
     from {
-        transform: rotate(0deg) scale(.01);
+        transform: rotateX(0deg) scale(.01);
         transform-origin: 0% 0%;
         opacity: 0;
     }
     to {
-        transform: rotate(360deg) scale(1);
+        transform: rotateX(360deg) scale(1);
         transform-origin: 0% 0%;
         opacity: 1;
     }
